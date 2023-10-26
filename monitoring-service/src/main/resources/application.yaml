@@ -1,0 +1,15 @@
+server.port: 8081
+spring:
+  application.name: monitoring-service
+  boot.admin.client.url: http://localhost:8080
+
+# All traces should be sent to latency analysis tool
+management.tracing.sampling.probability: 1.0
+management.endpoints.web.exposure.include: "*"
+
+# For Exemplars to work we need histogram buckets
+management.metrics.distribution.percentiles-histogram.http.server.requests: true
+
+logging:
+#  pattern.level: "%5p [${spring.application.name:}]"
+  level.cz.inventi: INFO
